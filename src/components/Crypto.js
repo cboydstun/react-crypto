@@ -48,7 +48,7 @@ export default function Bitcoin() {
   }
 
   return (
-    <div>
+    <div className="card">
       {value.data ? (
         <div>
           <h1>Name: {value.data.name}</h1>
