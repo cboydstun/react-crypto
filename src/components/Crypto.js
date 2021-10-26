@@ -48,16 +48,21 @@ export default function Crypto(props) {
           <p class="data">{dollarUSA.format(value.data.priceUsd)}</p>
           <h4>Symbol: </h4>
           <p class="data">{value.data.symbol}</p>
-          <Button onClick={refreshPrice}>Refresh</Button>
+          <Button variant="warning" onClick={refreshPrice}>Refresh</Button>
         </div>
       ) : (
-          <div className="text-center">
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-            <br />
-            <Button onClick={refreshPrice}>Refresh</Button>
-          </div>
+        <div className="spinner text-center">
+          <Button variant="warning" onClick={refreshPrice}>
+            <Spinner
+              as="span"
+              animation="grow"
+              size="sm"
+              role="status"
+              aria-hidden="true"
+            />
+            Loading...
+          </Button>
+        </div>
       )}
     </Card>
   );

@@ -14,7 +14,7 @@ export default function App() {
         {/* create a dropdown menu that selects various blockchain assets and passes them as props */}
 
         <Dropdown>
-          <Dropdown.Toggle variant="primary" id="dropdown-basic">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
             Select Blockchain Asset
           </Dropdown.Toggle>
 

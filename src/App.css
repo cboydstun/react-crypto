@@ -1,11 +1,11 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 .App {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #333;
   background-color: rebeccapurple;
@@ -30,11 +30,15 @@
   margin: 1rem;
 }
 
-h4{
+h4 {
   font-style: italic;
   text-decoration: underline;
 }
 
-.data{
+.data {
   font-size: 1.5rem;
+}
+
+.spinner {
+  margin-top: 50%;
 }
