@@ -42,9 +42,12 @@ export default function Crypto(props) {
     <Card>
       {value.data ? (
         <div className="text-center">
-          <h1>Name: {value.data.name}</h1>
-          <h2>Price: {dollarUSA.format(value.data.priceUsd)}</h2>
-          <h3>Symbol: {value.data.symbol}</h3>
+          <h4>Name: </h4>
+          <p class="data">{value.data.name}</p>
+          <h4>Price: </h4>
+          <p class="data">{dollarUSA.format(value.data.priceUsd)}</p>
+          <h4>Symbol: </h4>
+          <p class="data">{value.data.symbol}</p>
           <Button onClick={refreshPrice}>Refresh</Button>
         </div>
       ) : (
