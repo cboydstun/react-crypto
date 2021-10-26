@@ -14,7 +14,6 @@ export default function Crypto(props) {
     currency: 'USD',
   })
 
-  //make API call to get bitcoin data
   useEffect(() => {
     axios
       .get(baseUrl + props.asset, {
