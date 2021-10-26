@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 // import Button from 'react-bootstrap/Button'
-import { Spinner, Button } from 'react-bootstrap'
+import { Spinner, Button, Card } from 'react-bootstrap'
 
 const baseUrl = 'https://api.coincap.io/v2/assets/'
 
@@ -47,7 +47,7 @@ export default function Crypto(props) {
   }
 
   return (
-    <div className="card">
+    <Card>
       {value.data ? (
         <div className="text-center">
           <h1>Name: {value.data.name}</h1>
@@ -60,6 +60,6 @@ export default function Crypto(props) {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       )}
-    </div>
+    </Card>
   )
 }
