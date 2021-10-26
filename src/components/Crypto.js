@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 // import Button from 'react-bootstrap/Button'
-import { Spinner, Button, Card } from 'react-bootstrap'
+import { Spinner, Button, Card } from "react-bootstrap";
 
-const baseUrl = 'https://api.coincap.io/v2/assets/'
+const baseUrl = "https://api.coincap.io/v2/assets/";
 
 export default function Crypto(props) {
-  const [value, setValue] = useState({})
+  const [value, setValue] = useState({});
 
-  let dollarUSA = Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  })
+  let dollarUSA = Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   useEffect(() => {
     axios
       .get(baseUrl + props.asset)
       .then((res) => {
-        setValue(res.data)
-        console.log(res.data)
+        setValue(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }, [props.asset])
+        console.log(err);
+      });
+  }, [props.asset]);
 
   const refreshPrice = () => {
     axios
       .get(baseUrl + props.asset)
       .then((res) => {
-        setValue(res.data)
-        console.log(res.data)
+        setValue(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
-        console.log(err)
-      })
-  }
+        console.log(err);
+      });
+  };
 
   return (
     <Card>
@@ -51,14 +51,14 @@ export default function Crypto(props) {
           <Button onClick={refreshPrice}>Refresh</Button>
         </div>
       ) : (
-        <div>
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-        <br />
-        <Button onClick={refreshPrice}>Refresh</Button>
-        </div>
+          <div className="text-center">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+            <br />
+            <Button onClick={refreshPrice}>Refresh</Button>
+          </div>
       )}
     </Card>
-  )
+  );
 }
