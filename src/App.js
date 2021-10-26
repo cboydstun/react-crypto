@@ -31,13 +31,13 @@ export default function App() {
             <Dropdown.Item onClick={() => setValue("litecoin")}>
               Litecoin
             </Dropdown.Item>
-            <Dropdown.Item onClick={() => setValue("cardano")}>
-              Cardano
+            <Dropdown.Item onClick={() => setValue("dogecoin")}>
+              Dogecoin
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
-        {value && <Crypto asset={value} />}
+        <Crypto asset={value} />
       </Container>
     </div>
   );
