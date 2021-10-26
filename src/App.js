@@ -25,6 +25,12 @@ export default function App() {
             <Dropdown.Item onClick={() => setValue("ethereum")}>
               Ethereum
             </Dropdown.Item>
+            <Dropdown.Item onClick={() => setValue("bitcoin-cash")}>
+              Bitcoin Cash
+            </Dropdown.Item>
+            <Dropdown.Item onClick={() => setValue("litecoin")}>
+              Litecoin
+            </Dropdown.Item>
             <Dropdown.Item onClick={() => setValue("cardano")}>
               Cardano
             </Dropdown.Item>

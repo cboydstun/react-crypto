@@ -16,11 +16,7 @@ export default function Crypto(props) {
 
   useEffect(() => {
     axios
-      .get(baseUrl + props.asset, {
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
+      .get(baseUrl + props.asset)
       .then((res) => {
         setValue(res.data)
         console.log(res.data)
@@ -32,11 +28,7 @@ export default function Crypto(props) {
 
   const refreshPrice = () => {
     axios
-      .get(baseUrl + props.asset, {
-        headers: {
-          'content-type': 'application/json',
-        },
-      })
+      .get(baseUrl + props.asset)
       .then((res) => {
         setValue(res.data)
         console.log(res.data)
@@ -56,9 +48,13 @@ export default function Crypto(props) {
           <Button onClick={refreshPrice}>Refresh</Button>
         </div>
       ) : (
+        <div>
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
+        <br />
+        <Button onClick={refreshPrice}>Refresh</Button>
+        </div>
       )}
     </Card>
   )
