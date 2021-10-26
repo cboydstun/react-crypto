@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import Button from 'react-bootstrap/Button'
-import { Spinner } from 'react-bootstrap'
+// import Button from 'react-bootstrap/Button'
+import { Spinner, Button } from 'react-bootstrap'
 
-const baseUrl = 'https://api.coincap.io/v2/assets/bitcoin'
+const baseUrl = 'https://api.coincap.io/v2/assets/'
 
-export default function Bitcoin() {
+export default function Crypto(props) {
   const [value, setValue] = useState({})
 
   let dollarUSA = Intl.NumberFormat('en-US', {
@@ -17,7 +17,7 @@ export default function Bitcoin() {
   //make API call to get bitcoin data
   useEffect(() => {
     axios
-      .get(baseUrl, {
+      .get(baseUrl + props.asset, {
         headers: {
           'content-type': 'application/json',
         },
@@ -29,11 +29,11 @@ export default function Bitcoin() {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [props.asset])
 
   const refreshPrice = () => {
     axios
-      .get(baseUrl, {
+      .get(baseUrl + props.asset, {
         headers: {
           'content-type': 'application/json',
         },
@@ -50,11 +50,11 @@ export default function Bitcoin() {
   return (
     <div className="card">
       {value.data ? (
-        <div>
+        <div className="text-center">
           <h1>Name: {value.data.name}</h1>
           <h2>Price: {dollarUSA.format(value.data.priceUsd)}</h2>
           <h3>Symbol: {value.data.symbol}</h3>
-          <Button onClick={refreshPrice}>Button</Button>
+          <Button onClick={refreshPrice}>Refresh</Button>
         </div>
       ) : (
         <Spinner animation="border" role="status">
