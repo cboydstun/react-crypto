@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { Spinner, Button, Card } from 'react-bootstrap'
 
-import { computeDollars } from '../utils/format'
+import { computeDollars, computePercentage } from '../utils/format'
 
 const baseUrl = 'https://api.coincap.io/v2/assets/'
 
@@ -39,11 +39,15 @@ export default function Crypto(props) {
       {value.data ? (
         <div className="text-center">
           <h4>Name: </h4>
-          <p class="data">{value.data.name}</p>
+          <p className="data">{value.data.name}</p>
           <h4>Price: </h4>
-          <p class="data">{computeDollars(value.data.priceUsd)}</p>
+          <p className="data">{computeDollars(value.data.priceUsd)}</p>
+          <h4>24hr Change: </h4>
+          <p className="data">
+            {computePercentage(value.data.changePercent24Hr)}%
+          </p>
           <h4>Symbol: </h4>
-          <p class="data">{value.data.symbol}</p>
+          <p className="data">{value.data.symbol}</p>
           <Button variant="warning" onClick={refreshPrice}>
             Refresh
           </Button>

@@ -6,3 +6,7 @@ export function computeDollars(amount) {
 
   return dollarUSA.format(amount)
 }
+
+export function computePercentage(amount) {
+  return parseFloat(amount).toFixed(2)
+}
