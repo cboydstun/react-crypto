@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { Spinner, Button, Card } from 'react-bootstrap'
 
-import { computeDollars } from '../utilities/format'
+import { computeDollars } from '../utils/format'
 
 const baseUrl = 'https://api.coincap.io/v2/assets/'
 
